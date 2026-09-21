@@ -1,0 +1,2966 @@
+```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AzautoKZ — Автозапчасти</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f6f8;
+    color: #172033;
+    transition: .3s;
+}
+
+body.dark {
+    background: #0d1420;
+    color: #fff;
+}
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* ================= HEADER ================= */
+
+.top-line {
+    background: #0b1220;
+    color: #aeb6c5;
+    padding: 8px 5%;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+}
+
+header {
+    background: #071d52;
+    color: white;
+    padding: 16px 5%;
+}
+
+.header-main {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #ffd400;
+}
+
+.search {
+    flex: 1;
+    display: flex;
+    height: 46px;
+}
+
+.search input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0 18px;
+    font-size: 14px;
+    border-radius: 5px 0 0 5px;
+}
+
+.search button {
+    width: 110px;
+    border: none;
+    background: #ffd400;
+    color: #111827;
+    font-weight: bold;
+    border-radius: 0 5px 5px 0;
+}
+
+.header-icons {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    font-size: 14px;
+}
+
+.header-icons div {
+    cursor: pointer;
+}
+
+.nav {
+    margin-top: 18px;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.nav a:hover {
+    color: #ffd400;
+}
+
+.nav .catalog {
+    background: #ffd400;
+    color: #111827;
+    padding: 11px 22px;
+    border-radius: 4px;
+}
+
+.cart-count,
+.favorite-count {
+    background: #ffd400;
+    color: #111827;
+    padding: 2px 7px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+/* ================= CONTAINER ================= */
+
+.container {
+    width: 90%;
+    max-width: 1400px;
+    margin: auto;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 18px;
+}
+
+.hero-main {
+    min-height: 330px;
+    border-radius: 8px;
+    overflow: hidden;
+    background:
+        linear-gradient(90deg, rgba(0,0,0,.8), rgba(0,0,0,.1)),
+        url("https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1200&q=80")
+        center/cover;
+    color: white;
+    padding: 55px 45px;
+}
+
+.hero-main h1 {
+    font-size: 40px;
+    max-width: 520px;
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
+
+.hero-main p {
+    color: #ddd;
+    max-width: 470px;
+    margin-bottom: 25px;
+}
+
+.yellow-btn {
+    display: inline-block;
+    background: #ffd400;
+    color: #111827;
+    padding: 14px 25px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.hero-side {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.small-banner {
+    flex: 1;
+    border-radius: 8px;
+    padding: 30px;
+    color: white;
+    background: #151c2b;
+}
+
+.small-banner:nth-child(2) {
+    background: #252b35;
+}
+
+.small-banner h3 {
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.small-banner p {
+    color: #c9ced7;
+    font-size: 14px;
+}
+
+.small-banner strong {
+    display: block;
+    color: #ffd400;
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+/* ================= ADVANTAGES ================= */
+
+.advantages {
+    background: white;
+    margin-top: 20px;
+    padding: 18px;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.05);
+}
+
+.advantage {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-right: 1px solid #eee;
+}
+
+.advantage:last-child {
+    border-right: none;
+}
+
+.advantage-icon {
+    font-size: 27px;
+}
+
+.advantage h4 {
+    font-size: 14px;
+    margin-bottom: 3px;
+}
+
+.advantage p {
+    font-size: 11px;
+    color: #777;
+}
+
+/* ================= SECTION ================= */
+
+.section {
+    margin-top: 45px;
+}
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-title h2 {
+    font-size: 25px;
+}
+
+.section-title a {
+    color: #1645a5;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* ================= CATEGORIES ================= */
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+}
+
+.category {
+    background: white;
+    padding: 22px 10px;
+    text-align: center;
+    border: 1px solid #e8e8e8;
+    border-radius: 6px;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.category:hover {
+    transform: translateY(-4px);
+    border-color: #ffd400;
+    box-shadow: 0 5px 15px rgba(0,0,0,.08);
+}
+
+.category-icon {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.category h3 {
+    font-size: 13px;
+}
+
+/* ================= SALE ================= */
+
+.sale {
+    margin-top: 40px;
+    background: #ffd400;
+    border-radius: 7px;
+    padding: 22px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sale h2 {
+    font-size: 25px;
+}
+
+.sale p {
+    margin-top: 5px;
+    font-size: 13px;
+}
+
+.sale button {
+    background: #101827;
+    color: white;
+    border: none;
+    padding: 13px 25px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* ================= FILTERS ================= */
+
+.filters {
+    background: white;
+    padding: 18px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr 1fr auto;
+    gap: 10px;
+}
+
+.filters select,
+.filters input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+.reset-btn {
+    background: #071d52;
+    color: white;
+    border: none;
+    padding: 0 18px;
+    border-radius: 5px;
+}
+
+/* ================= PRODUCTS ================= */
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+}
+
+.product {
+    background: white;
+    border-radius: 7px;
+    border: 1px solid #e6e7ea;
+    overflow: hidden;
+    transition: .2s;
+    position: relative;
+}
+
+.product:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 7px 20px rgba(0,0,0,.1);
+}
+
+.product-img {
+    height: 175px;
+    background: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 70px;
+}
+
+.product-info {
+    padding: 15px;
+}
+
+.brand {
+    font-size: 11px;
+    color: #777;
+    margin-bottom: 6px;
+}
+
+.product h3 {
+    font-size: 14px;
+    line-height: 1.4;
+    min-height: 40px;
+}
+
+.rating {
+    color: #ffb800;
+    margin: 8px 0;
+    font-size: 13px;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.old-price {
+    color: #999;
+    font-size: 12px;
+    text-decoration: line-through;
+    margin-left: 5px;
+}
+
+.buy-btn {
+    width: 100%;
+    border: none;
+    background: #071d52;
+    color: white;
+    padding: 11px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.buy-btn:hover {
+    background: #ffd400;
+    color: #111827;
+}
+
+.favorite-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 18px;
+    z-index: 2;
+}
+
+.favorite-btn.active {
+    color: #ef4444;
+}
+
+.sale-label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #ef4444;
+    color: white;
+    padding: 5px 8px;
+    font-size: 10px;
+    font-weight: bold;
+    border-radius: 3px;
+    z-index: 2;
+}
+
+/* ================= CAR SELECT ================= */
+
+.car-select {
+    margin-top: 45px;
+    background: #101827;
+    color: white;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.car-select h2 {
+    margin-bottom: 8px;
+}
+
+.car-select p {
+    color: #adb5c3;
+    margin-bottom: 20px;
+}
+
+.selects {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) auto;
+    gap: 10px;
+}
+
+select {
+    padding: 13px;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+}
+
+.find-btn {
+    background: #ffd400;
+    border: none;
+    padding: 0 25px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* ================= VIN ================= */
+
+.vin {
+    margin-top: 25px;
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.vin-text {
+    flex: 1;
+}
+
+.vin h3 {
+    margin-bottom: 5px;
+}
+
+.vin p {
+    color: #777;
+    font-size: 13px;
+}
+
+.vin input {
+    padding: 13px;
+    width: 280px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.vin button {
+    padding: 13px 20px;
+    border: none;
+    background: #071d52;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* ================= NEWS ================= */
+
+.news {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 20px;
+}
+
+.news-main,
+.news-item {
+    background: white;
+    border-radius: 7px;
+}
+
+.news-main {
+    overflow: hidden;
+}
+
+.news-image {
+    height: 230px;
+    background:
+        url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1000&q=80")
+        center/cover;
+}
+
+.news-content {
+    padding: 20px;
+}
+
+.news-content h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.news-content p {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.news-item {
+    padding: 15px;
+}
+
+.news-item h4 {
+    font-size: 14px;
+    margin-bottom: 7px;
+}
+
+.news-item p {
+    font-size: 12px;
+    color: #888;
+}
+
+/* ================= REVIEWS ================= */
+
+.reviews {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.review {
+    background: white;
+    padding: 20px;
+    border-radius: 7px;
+}
+
+.review-stars {
+    color: #ffb800;
+    margin-bottom: 10px;
+}
+
+.review p {
+    color: #666;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.review strong {
+    display: block;
+    margin-top: 12px;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    margin-top: 60px;
+    background: #07111f;
+    color: white;
+    padding: 45px 5%;
+}
+
+.footer-grid {
+    max-width: 1400px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+}
+
+.footer-logo {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.footer-logo span {
+    color: #ffd400;
+}
+
+footer p {
+    color: #9ca6b5;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+footer h3 {
+    margin-bottom: 15px;
+}
+
+footer a {
+    display: block;
+    color: #9ca6b5;
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+footer a:hover {
+    color: #ffd400;
+}
+
+.copyright {
+    max-width: 1400px;
+    margin: 35px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid #263142;
+    color: #697386;
+    font-size: 12px;
+}
+
+/* ================= MODAL ================= */
+
+.modal-bg {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.65);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.modal-bg.active {
+    display: flex;
+}
+
+.modal {
+    background: white;
+    color: #172033;
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 10px;
+    padding: 25px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 12px;
+    border: none;
+    background: none;
+    font-size: 25px;
+}
+
+.modal h2 {
+    margin-bottom: 20px;
+}
+
+.modal-product {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-product-icon {
+    width: 130px;
+    height: 130px;
+    background: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 55px;
+    border-radius: 8px;
+}
+
+.modal-product-info {
+    flex: 1;
+}
+
+.modal-product-info p {
+    color: #777;
+    margin: 8px 0;
+}
+
+.quantity {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.quantity button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: #071d52;
+    color: white;
+    border-radius: 4px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding: 14px 0;
+    gap: 10px;
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.remove-btn {
+    border: none;
+    background: #ef4444;
+    color: white;
+    padding: 7px 10px;
+    border-radius: 4px;
+}
+
+.cart-total {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.checkout-btn {
+    width: 100%;
+    background: #ffd400;
+    color: #111827;
+    border: none;
+    padding: 14px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 13px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+.form-group textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.promo {
+    display: flex;
+    gap: 8px;
+    margin: 15px 0;
+}
+
+.promo input {
+    flex: 1;
+    padding: 11px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.promo button {
+    border: none;
+    background: #071d52;
+    color: white;
+    padding: 0 15px;
+    border-radius: 5px;
+}
+
+/* ================= TOAST ================= */
+
+.toast {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: #101827;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 7px;
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+    transition: .3s;
+    z-index: 10000;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================= FLOATING WHATSAPP ================= */
+
+.whatsapp {
+    position: fixed;
+    right: 20px;
+    bottom: 80px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: #25d366;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27px;
+    text-decoration: none;
+    z-index: 100;
+    box-shadow: 0 5px 20px rgba(0,0,0,.2);
+}
+
+/* ================= DARK ================= */
+
+body.dark .advantages,
+body.dark .category,
+body.dark .product,
+body.dark .filters,
+body.dark .vin,
+body.dark .news-main,
+body.dark .news-item,
+body.dark .review {
+    background: #172033;
+    color: white;
+    border-color: #263142;
+}
+
+body.dark .product-img {
+    background: #101827;
+}
+
+body.dark .product h3,
+body.dark .category h3 {
+    color: white;
+}
+
+body.dark .modal {
+    background: #172033;
+    color: white;
+}
+
+body.dark .modal-product-icon {
+    background: #101827;
+}
+
+body.dark .filters select,
+body.dark .filters input,
+body.dark .vin input {
+    background: #101827;
+    color: white;
+    border-color: #334155;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width: 1100px) {
+    .products {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .categories {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .filters {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .advantages {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 700px) {
+
+    .top-line {
+        display: none;
+    }
+
+    header {
+        padding: 15px;
+    }
+
+    .header-main {
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .search {
+        order: 3;
+        flex-basis: 100%;
+    }
+
+    .header-icons {
+        font-size: 12px;
+    }
+
+    .nav {
+        overflow-x: auto;
+        gap: 18px;
+        padding-bottom: 5px;
+    }
+
+    .container {
+        width: 94%;
+    }
+
+    .hero-main {
+        padding: 35px 25px;
+    }
+
+    .hero-main h1 {
+        font-size: 30px;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .advantages {
+        grid-template-columns: 1fr;
+    }
+
+    .advantage {
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+    }
+
+    .sale {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    .selects {
+        grid-template-columns: 1fr;
+    }
+
+    .find-btn {
+        padding: 13px;
+    }
+
+    .news {
+        grid-template-columns: 1fr;
+    }
+
+    .reviews {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .vin {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .vin input {
+        width: 100%;
+    }
+
+    .filters {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 450px) {
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .categories {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOP LINE -->
+
+<div class="top-line">
+    <span>🚗 Автозапчасти с доставкой по Казахстану</span>
+    <span>📞 +7 (777) 123-45-67</span>
+</div>
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="header-main">
+
+        <div class="logo">
+            Azauto<span>KZ</span>
+        </div>
+
+        <div class="search">
+            <input
+                id="search"
+                type="text"
+                placeholder="Поиск запчастей, артикулов и товаров..."
+                oninput="searchProduct()"
+            >
+
+            <button onclick="searchProduct()">
+                🔍 Найти
+            </button>
+        </div>
+
+        <div class="header-icons">
+
+            <div onclick="showFavorites()">
+                ❤️ <span class="favorite-count" id="favoriteCount">0</span>
+            </div>
+
+            <div onclick="toggleDarkMode()">
+                🌙
+            </div>
+
+            <div onclick="showMessage('Профиль')">
+                👤 Войти
+            </div>
+
+            <div onclick="showCart()">
+                🛒 Корзина
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <nav class="nav">
+
+        <a href="#products" class="catalog">
+            ☰ КАТАЛОГ
+        </a>
+
+        <a href="#categories">Категории</a>
+        <a href="#products">Запчасти</a>
+        <a href="#car">Подбор по авто</a>
+        <a href="#news">Новости</a>
+        <a href="#contacts">Контакты</a>
+
+    </nav>
+
+</header>
+
+
+<main class="container">
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-main">
+
+        <h1>
+            Тысячи запчастей.
+            Один надёжный источник.
+        </h1>
+
+        <p>
+            Оригинальные и качественные автозапчасти
+            для популярных марок автомобилей.
+        </p>
+
+        <a href="#products" class="yellow-btn">
+            НАЙТИ ЗАПЧАСТИ →
+        </a>
+
+    </div>
+
+    <div class="hero-side">
+
+        <div class="small-banner">
+            <h3>Колёса для вашего авто</h3>
+            <p>Шины и диски по выгодным ценам</p>
+            <strong>Скидка до 30%</strong>
+        </div>
+
+        <div class="small-banner">
+            <h3>Кузовные детали</h3>
+            <p>Бамперы, фары, зеркала и многое другое</p>
+            <strong>ОТ 9 990 ₸</strong>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ADVANTAGES -->
+
+<section class="advantages">
+
+    <div class="advantage">
+        <div class="advantage-icon">🚚</div>
+        <div>
+            <h4>Быстрая доставка</h4>
+            <p>По Алматы и Казахстану</p>
+        </div>
+    </div>
+
+    <div class="advantage">
+        <div class="advantage-icon">↩️</div>
+        <div>
+            <h4>Возврат 60 дней</h4>
+            <p>Гарантия на товары</p>
+        </div>
+    </div>
+
+    <div class="advantage">
+        <div class="advantage-icon">🔧</div>
+        <div>
+            <h4>Помощь в подборе</h4>
+            <p>Поможем найти нужную деталь</p>
+        </div>
+    </div>
+
+    <div class="advantage">
+        <div class="advantage-icon">⭐</div>
+        <div>
+            <h4>Высокое качество</h4>
+            <p>Проверенные производители</p>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- CATEGORIES -->
+
+<section class="section" id="categories">
+
+    <div class="section-title">
+        <h2>Популярные категории</h2>
+    </div>
+
+    <div class="categories">
+
+        <div class="category" onclick="filterCategory('Тормоза')">
+            <div class="category-icon">🛑</div>
+            <h3>Тормоза</h3>
+        </div>
+
+        <div class="category" onclick="filterCategory('Подвеска')">
+            <div class="category-icon">🌀</div>
+            <h3>Подвеска</h3>
+        </div>
+
+        <div class="category" onclick="filterCategory('Масла')">
+            <div class="category-icon">🛢️</div>
+            <h3>Масла</h3>
+        </div>
+
+        <div class="category" onclick="filterCategory('Фильтры')">
+            <div class="category-icon">⚙️</div>
+            <h3>Фильтры</h3>
+        </div>
+
+        <div class="category" onclick="filterCategory('Инструменты')">
+            <div class="category-icon">🔧</div>
+            <h3>Инструменты</h3>
+        </div>
+
+        <div class="category" onclick="filterCategory('Освещение')">
+            <div class="category-icon">💡</div>
+            <h3>Освещение</h3>
+        </div>
+
+        <div class="category" onclick="filterCategory('Свечи')">
+            <div class="category-icon">🔩</div>
+            <h3>Свечи</h3>
+        </div>
+
+        <div class="category" onclick="filterCategory('Прокладки')">
+            <div class="category-icon">⭕</div>
+            <h3>Прокладки</h3>
+        </div>
+
+        <div class="category" onclick="filterCategory('Аккумуляторы')">
+            <div class="category-icon">🔋</div>
+            <h3>Аккумуляторы</h3>
+        </div>
+
+        <div class="category" onclick="filterCategory('Колёса')">
+            <div class="category-icon">🛞</div>
+            <h3>Колёса</h3>
+        </div>
+
+        <div class="category" onclick="filterCategory('Кузов')">
+            <div class="category-icon">🚗</div>
+            <h3>Кузов</h3>
+        </div>
+
+        <div class="category" onclick="filterCategory('Электрика')">
+            <div class="category-icon">🔌</div>
+            <h3>Электрика</h3>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SALE -->
+
+<section class="sale">
+
+    <div>
+        <h2>🔥 ОГРАНИЧЕННОЕ ПРЕДЛОЖЕНИЕ</h2>
+        <p>Скидка до 50% на выбранные товары</p>
+    </div>
+
+    <button onclick="scrollToProducts()">
+        СМОТРЕТЬ ТОВАРЫ →
+    </button>
+
+</section>
+
+
+<!-- PRODUCTS -->
+
+<section class="section" id="products">
+
+    <div class="section-title">
+        <h2>Популярные товары</h2>
+    </div>
+
+    <!-- FILTERS -->
+
+    <div class="filters">
+
+        <select id="categoryFilter" onchange="filterProducts()">
+            <option value="">Все категории</option>
+            <option value="Тормоза">Тормоза</option>
+            <option value="Масла">Масла</option>
+            <option value="Аккумуляторы">Аккумуляторы</option>
+            <option value="Освещение">Освещение</option>
+            <option value="Подвеска">Подвеска</option>
+        </select>
+
+        <select id="brandFilter" onchange="filterProducts()">
+            <option value="">Все производители</option>
+            <option value="BOSCH">BOSCH</option>
+            <option value="MANN-FILTER">MANN-FILTER</option>
+            <option value="PHILIPS">PHILIPS</option>
+            <option value="SACHS">SACHS</option>
+        </select>
+
+        <input
+            id="minPrice"
+            type="number"
+            placeholder="Цена от"
+            oninput="filterProducts()"
+        >
+
+        <input
+            id="maxPrice"
+            type="number"
+            placeholder="Цена до"
+            oninput="filterProducts()"
+        >
+
+        <button class="reset-btn" onclick="resetFilters()">
+            Сбросить
+        </button>
+
+    </div>
+
+    <div class="products" id="productList"></div>
+
+</section>
+
+
+<!-- CAR SELECT -->
+
+<section class="car-select" id="car">
+
+    <h2>🔎 Подберите запчасть по автомобилю</h2>
+
+    <p>
+        Выберите марку, модель, год и двигатель вашего автомобиля.
+    </p>
+
+    <div class="selects">
+
+        <select id="brand" onchange="updateModels()">
+            <option value="">Марка автомобиля</option>
+            <option value="Toyota">Toyota</option>
+            <option value="BMW">BMW</option>
+            <option value="Mercedes-Benz">Mercedes-Benz</option>
+            <option value="Hyundai">Hyundai</option>
+            <option value="Kia">Kia</option>
+            <option value="Volkswagen">Volkswagen</option>
+            <option value="Ford">Ford</option>
+        </select>
+
+        <select id="model" onchange="updateYears()">
+            <option value="">Модель</option>
+        </select>
+
+        <select id="year" onchange="updateEngines()">
+            <option value="">Год</option>
+        </select>
+
+        <select id="engine">
+            <option value="">Двигатель</option>
+        </select>
+
+        <button class="find-btn" onclick="findParts()">
+            НАЙТИ
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- VIN -->
+
+<section class="vin">
+
+    <div class="vin-text">
+        <h3>🔑 Не знаете артикул детали?</h3>
+        <p>
+            Введите VIN автомобиля и наш менеджер поможет подобрать запчасть.
+        </p>
+    </div>
+
+    <input
+        id="vinInput"
+        type="text"
+        maxlength="17"
+        placeholder="Введите VIN автомобиля"
+    >
+
+    <button onclick="checkVIN()">
+        ПОДОБРАТЬ
+    </button>
+
+</section>
+
+
+<!-- REVIEWS -->
+
+<section class="section">
+
+    <div class="section-title">
+        <h2>Отзывы покупателей</h2>
+    </div>
+
+    <div class="reviews">
+
+        <div class="review">
+            <div class="review-stars">★★★★★</div>
+            <p>
+                Быстро нашли нужные тормозные колодки.
+                Заказ пришёл вовремя.
+            </p>
+            <strong>Алексей</strong>
+        </div>
+
+        <div class="review">
+            <div class="review-stars">★★★★★</div>
+            <p>
+                Хороший выбор запчастей и нормальные цены.
+                Буду заказывать ещё.
+            </p>
+            <strong>Данияр</strong>
+        </div>
+
+        <div class="review">
+            <div class="review-stars">★★★★☆</div>
+            <p>
+                Менеджер помог подобрать фильтр именно
+                под мою машину.
+            </p>
+            <strong>Марат</strong>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- NEWS -->
+
+<section class="section" id="news">
+
+    <div class="section-title">
+        <h2>Новости и полезные статьи</h2>
+    </div>
+
+    <div class="news">
+
+        <div class="news-main">
+
+            <div class="news-image"></div>
+
+            <div class="news-content">
+
+                <h3>
+                    Как правильно выбрать автозапчасти?
+                </h3>
+
+                <p>
+                    Рассказываем, на что обращать внимание при выборе
+                    запчастей, как проверить совместимость и почему
+                    важно знать оригинальный артикул детали.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="news-list">
+
+            <div class="news-item">
+                <h4>🔧 Когда менять тормозные колодки?</h4>
+                <p>Полезные советы для автомобилистов</p>
+            </div>
+
+            <div class="news-item">
+                <h4>🛢️ Как выбрать моторное масло?</h4>
+                <p>Вязкость, допуски и производители</p>
+            </div>
+
+            <div class="news-item">
+                <h4>🔋 Как продлить срок службы аккумулятора?</h4>
+                <p>5 простых рекомендаций</p>
+            </div>
+
+            <div class="news-item">
+                <h4>🚗 Подготовка автомобиля к зиме</h4>
+                <p>Что необходимо проверить заранее</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer id="contacts">
+
+    <div class="footer-grid">
+
+        <div>
+
+            <div class="footer-logo">
+                Azauto<span>KZ</span>
+            </div>
+
+            <p>
+                Интернет-магазин автозапчастей.
+                Большой выбор деталей для автомобилей
+                по доступным ценам.
+            </p>
+
+            <br>
+
+            <p>
+                📍 Алматы, Казахстан<br>
+                📞 +7 (777) 123-45-67<br>
+                ✉️ info@azautokz.kz
+            </p>
+
+        </div>
+
+        <div>
+
+            <h3>Каталог</h3>
+
+            <a href="#products">Тормозная система</a>
+            <a href="#products">Двигатель</a>
+            <a href="#products">Подвеска</a>
+            <a href="#products">Электрика</a>
+            <a href="#products">Кузов</a>
+
+        </div>
+
+        <div>
+
+            <h3>Покупателям</h3>
+
+            <a href="#" onclick="showMessage('Как заказать'); return false;">Как заказать</a>
+            <a href="#" onclick="showMessage('Доставка'); return false;">Доставка</a>
+            <a href="#" onclick="showMessage('Оплата'); return false;">Оплата</a>
+            <a href="#" onclick="showMessage('Возврат'); return false;">Возврат</a>
+            <a href="#" onclick="showMessage('Гарантия'); return false;">Гарантия</a>
+
+        </div>
+
+        <div>
+
+            <h3>AzautoKZ</h3>
+
+            <a href="#" onclick="showMessage('О компании'); return false;">О компании</a>
+            <a href="#contacts">Контакты</a>
+            <a href="#news">Новости</a>
+            <a href="#" onclick="showMessage('Помощь'); return false;">Помощь</a>
+
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2026 AzautoKZ — Интернет-магазин автозапчастей
+    </div>
+
+</footer>
+
+
+<!-- WHATSAPP -->
+
+<a
+    class="whatsapp"
+    href="https://wa.me/77771234567?text=Здравствуйте!%20Хочу%20подобрать%20автозапчасть."
+    target="_blank"
+>
+    💬
+</a>
+
+
+<!-- PRODUCT MODAL -->
+
+<div class="modal-bg" id="productModal">
+
+    <div class="modal">
+
+        <button class="close" onclick="closeModal('productModal')">
+            ×
+        </button>
+
+        <div id="productModalContent"></div>
+
+    </div>
+
+</div>
+
+
+<!-- CART MODAL -->
+
+<div class="modal-bg" id="cartModal">
+
+    <div class="modal">
+
+        <button class="close" onclick="closeModal('cartModal')">
+            ×
+        </button>
+
+        <h2>🛒 Ваша корзина</h2>
+
+        <div id="cartItems"></div>
+
+        <div class="promo">
+
+            <input
+                id="promoInput"
+                placeholder="Промокод"
+            >
+
+            <button onclick="applyPromo()">
+                Применить
+            </button>
+
+        </div>
+
+        <div class="cart-total" id="cartTotal">
+            Итого: 0 ₸
+        </div>
+
+        <button class="checkout-btn" onclick="openCheckout()">
+            ОФОРМИТЬ ЗАКАЗ
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- CHECKOUT MODAL -->
+
+<div class="modal-bg" id="checkoutModal">
+
+    <div class="modal">
+
+        <button class="close" onclick="closeModal('checkoutModal')">
+            ×
+        </button>
+
+        <h2>📦 Оформление заказа</h2>
+
+        <div class="form-group">
+            <label>Ваше имя</label>
+            <input id="orderName" placeholder="Введите имя">
+        </div>
+
+        <div class="form-group">
+            <label>Телефон</label>
+            <input id="orderPhone" placeholder="+7 (___) ___-__-__">
+        </div>
+
+        <div class="form-group">
+            <label>Город</label>
+            <select id="orderCity">
+                <option>Алматы</option>
+                <option>Астана</option>
+                <option>Шымкент</option>
+                <option>Караганда</option>
+                <option>Другой город</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Способ доставки</label>
+            <select id="delivery">
+                <option>Курьерская доставка</option>
+                <option>Самовывоз</option>
+                <option>Доставка транспортной компанией</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Адрес</label>
+            <textarea id="orderAddress" placeholder="Введите адрес доставки"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Способ оплаты</label>
+            <select id="payment">
+                <option>Оплата при получении</option>
+                <option>Kaspi перевод</option>
+                <option>Банковская карта</option>
+            </select>
+        </div>
+
+        <button class="checkout-btn" onclick="createOrder()">
+            ПОДТВЕРДИТЬ ЗАКАЗ
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+
+/* =====================================================
+   DATABASE
+===================================================== */
+
+const products = [
+
+    {
+        id: 1,
+        name: "Передние тормозные колодки",
+        brand: "BOSCH",
+        category: "Тормоза",
+        price: 18500,
+        oldPrice: 23000,
+        rating: 4.9,
+        icon: "🛑",
+        article: "0986AB1234",
+        stock: 8,
+        description: "Качественные передние тормозные колодки BOSCH."
+    },
+
+    {
+        id: 2,
+        name: "Масляный фильтр автомобиля",
+        brand: "MANN-FILTER",
+        category: "Масла",
+        price: 4500,
+        oldPrice: 0,
+        rating: 4.8,
+        icon: "🛢️",
+        article: "W712/95",
+        stock: 15,
+        description: "Надёжный масляный фильтр для легковых автомобилей."
+    },
+
+    {
+        id: 3,
+        name: "Автомобильный аккумулятор 75Ah",
+        brand: "BOSCH",
+        category: "Аккумуляторы",
+        price: 42000,
+        oldPrice: 49000,
+        rating: 4.9,
+        icon: "🔋",
+        article: "S4008",
+        stock: 5,
+        description: "Автомобильный аккумулятор BOSCH 75Ah."
+    },
+
+    {
+        id: 4,
+        name: "LED лампы для автомобиля",
+        brand: "PHILIPS",
+        category: "Освещение",
+        price: 12000,
+        oldPrice: 0,
+        rating: 4.7,
+        icon: "💡",
+        article: "LED-XT200",
+        stock: 20,
+        description: "Яркие LED лампы PHILIPS для автомобиля."
+    },
+
+    {
+        id: 5,
+        name: "Амортизатор передний",
+        brand: "SACHS",
+        category: "Подвеска",
+        price: 35000,
+        oldPrice: 0,
+        rating: 4.8,
+        icon: "🌀",
+        article: "SACHS-314982",
+        stock: 6,
+        description: "Передний амортизатор SACHS."
+    },
+
+    {
+        id: 6,
+        name: "Свечи зажигания",
+        brand: "BOSCH",
+        category: "Свечи",
+        price: 6500,
+        oldPrice: 7500,
+        rating: 4.8,
+        icon: "🔩",
+        article: "FR7DC",
+        stock: 25,
+        description: "Комплект свечей зажигания."
+    },
+
+    {
+        id: 7,
+        name: "Воздушный фильтр",
+        brand: "MANN-FILTER",
+        category: "Фильтры",
+        price: 7800,
+        oldPrice: 0,
+        rating: 4.9,
+        icon: "⚙️",
+        article: "C25006",
+        stock: 10,
+        description: "Воздушный фильтр двигателя."
+    },
+
+    {
+        id: 8,
+        name: "Автомобильное масло 5W-40",
+        brand: "BOSCH",
+        category: "Масла",
+        price: 14500,
+        oldPrice: 17000,
+        rating: 4.8,
+        icon: "🛢️",
+        article: "OIL-5W40",
+        stock: 18,
+        description: "Синтетическое моторное масло 5W-40."
+    }
+
+];
+
+
+/* =====================================================
+   CART
+===================================================== */
+
+let cart = JSON.parse(localStorage.getItem("azauto_cart")) || [];
+
+let favorites =
+    JSON.parse(localStorage.getItem("azauto_favorites")) || [];
+
+let promoDiscount = 0;
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    renderProducts(products);
+
+    updateCartCount();
+
+    updateFavoriteCount();
+
+    loadDarkMode();
+
+});
+
+
+/* =====================================================
+   PRODUCTS
+===================================================== */
+
+function renderProducts(list) {
+
+    const container = document.getElementById("productList");
+
+    container.innerHTML = "";
+
+    if (list.length === 0) {
+
+        container.innerHTML = `
+            <div style="grid-column:1/-1;background:white;padding:40px;text-align:center;border-radius:8px;">
+                😔 Товары не найдены
+            </div>
+        `;
+
+        return;
+    }
+
+    list.forEach(product => {
+
+        const isFavorite = favorites.includes(product.id);
+
+        container.innerHTML += `
+
+            <div class="product">
+
+                ${
+                    product.oldPrice
+                    ? `<span class="sale-label">СКИДКА</span>`
+                    : ""
+                }
+
+                <button
+                    class="favorite-btn ${isFavorite ? "active" : ""}"
+                    onclick="toggleFavorite(${product.id})"
+                >
+                    ${isFavorite ? "❤️" : "♡"}
+                </button>
+
+                <div
+                    class="product-img"
+                    onclick="showProduct(${product.id})"
+                    style="cursor:pointer;"
+                >
+                    ${product.icon}
+                </div>
+
+                <div class="product-info">
+
+                    <div class="brand">
+                        ${product.brand}
+                    </div>
+
+                    <h3>
+                        ${product.name}
+                    </h3>
+
+                    <div class="rating">
+                        ★★★★★ ${product.rating}
+                    </div>
+
+                    <div class="price">
+
+                        ${product.price.toLocaleString()} ₸
+
+                        ${
+                            product.oldPrice
+                            ? `<span class="old-price">${product.oldPrice.toLocaleString()} ₸</span>`
+                            : ""
+                        }
+
+                    </div>
+
+                    <button
+                        class="buy-btn"
+                        onclick="addToCart(${product.id})"
+                    >
+                        🛒 В корзину
+                    </button>
+
+                </div>
+
+            </div>
+        `;
+    });
+}
+
+
+/* =====================================================
+   PRODUCT DETAILS
+===================================================== */
+
+function showProduct(id) {
+
+    const product = products.find(p => p.id === id);
+
+    if (!product) return;
+
+    document.getElementById("productModalContent").innerHTML = `
+
+        <h2>${product.name}</h2>
+
+        <div class="modal-product">
+
+            <div class="modal-product-icon">
+                ${product.icon}
+            </div>
+
+            <div class="modal-product-info">
+
+                <strong>${product.brand}</strong>
+
+                <p>${product.description}</p>
+
+                <p>
+                    ⭐ ${product.rating} / 5
+                </p>
+
+                <p>
+                    Артикул: ${product.article}
+                </p>
+
+                <p>
+                    В наличии: ${product.stock} шт.
+                </p>
+
+                <div class="price">
+                    ${product.price.toLocaleString()} ₸
+                </div>
+
+            </div>
+
+        </div>
+
+        <button
+            class="checkout-btn"
+            onclick="addToCart(${product.id}); closeModal('productModal')"
+        >
+            ДОБАВИТЬ В КОРЗИНУ
+        </button>
+    `;
+
+    openModal("productModal");
+}
+
+
+/* =====================================================
+   CART
+===================================================== */
+
+function addToCart(id) {
+
+    const product = products.find(p => p.id === id);
+
+    if (!product) return;
+
+    const existing = cart.find(item => item.id === id);
+
+    if (existing) {
+
+        existing.quantity++;
+
+    } else {
+
+        cart.push({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            quantity: 1
+        });
+
+    }
+
+    saveCart();
+
+    updateCartCount();
+
+    showToast("✅ Товар добавлен в корзину");
+}
+
+
+function saveCart() {
+
+    localStorage.setItem(
+        "azauto_cart",
+        JSON.stringify(cart)
+    );
+
+}
+
+
+function updateCartCount() {
+
+    const count =
+        cart.reduce(
+            (sum, item) => sum + item.quantity,
+            0
+        );
+
+    document.getElementById("cartCount").innerText = count;
+
+}
+
+
+function showCart() {
+
+    renderCart();
+
+    openModal("cartModal");
+
+}
+
+
+function renderCart() {
+
+    const container =
+        document.getElementById("cartItems");
+
+    if (cart.length === 0) {
+
+        container.innerHTML = `
+            <p style="padding:25px 0;text-align:center;">
+                🛒 Корзина пока пустая.
+            </p>
+        `;
+
+        document.getElementById("cartTotal").innerText =
+            "Итого: 0 ₸";
+
+        return;
+    }
+
+    let total = 0;
+
+    container.innerHTML = "";
+
+    cart.forEach(item => {
+
+        const itemTotal =
+            item.price * item.quantity;
+
+        total += itemTotal;
+
+        container.innerHTML += `
+
+            <div class="cart-item">
+
+                <div class="cart-item-info">
+
+                    <strong>${item.name}</strong>
+
+                    <p>
+                        ${item.price.toLocaleString()} ₸
+                    </p>
+
+                    <div class="quantity">
+
+                        <button onclick="changeQuantity(${item.id}, -1)">
+                            −
+                        </button>
+
+                        <strong>
+                            ${item.quantity}
+                        </strong>
+
+                        <button onclick="changeQuantity(${item.id}, 1)">
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <strong>
+                    ${itemTotal.toLocaleString()} ₸
+                </strong>
+
+                <button
+                    class="remove-btn"
+                    onclick="removeFromCart(${item.id})"
+                >
+                    Удалить
+                </button>
+
+            </div>
+        `;
+    });
+
+    if (promoDiscount > 0) {
+
+        total =
+            total - (total * promoDiscount / 100);
+
+    }
+
+    document.getElementById("cartTotal").innerText =
+        "Итого: " + total.toLocaleString() + " ₸";
+
+}
+
+
+function changeQuantity(id, amount) {
+
+    const item =
+        cart.find(item => item.id === id);
+
+    if (!item) return;
+
+    item.quantity += amount;
+
+    if (item.quantity <= 0) {
+
+        cart =
+            cart.filter(item => item.id !== id);
+
+    }
+
+    saveCart();
+
+    updateCartCount();
+
+    renderCart();
+
+}
+
+
+function removeFromCart(id) {
+
+    cart =
+        cart.filter(item => item.id !== id);
+
+    saveCart();
+
+    updateCartCount();
+
+    renderCart();
+
+    showToast("Товар удалён");
+
+}
+
+
+/* =====================================================
+   PROMO
+===================================================== */
+
+function applyPromo() {
+
+    const code =
+        document
+        .getElementById("promoInput")
+        .value
+        .trim()
+        .toUpperCase();
+
+    if (code === "AZAUTO10") {
+
+        promoDiscount = 10;
+
+        showToast("🎉 Скидка 10% применена");
+
+        renderCart();
+
+    } else {
+
+        promoDiscount = 0;
+
+        showToast("❌ Промокод не найден");
+
+    }
+
+}
+
+
+/* =====================================================
+   CHECKOUT
+===================================================== */
+
+function openCheckout() {
+
+    if (cart.length === 0) {
+
+        showToast("Корзина пустая");
+
+        return;
+    }
+
+    closeModal("cartModal");
+
+    openModal("checkoutModal");
+
+}
+
+
+function createOrder() {
+
+    const name =
+        document.getElementById("orderName").value.trim();
+
+    const phone =
+        document.getElementById("orderPhone").value.trim();
+
+    const city =
+        document.getElementById("orderCity").value;
+
+    const delivery =
+        document.getElementById("delivery").value;
+
+    const address =
+        document.getElementById("orderAddress").value.trim();
+
+    if (!name || !phone || !address) {
+
+        showToast("⚠️ Заполните все обязательные поля");
+
+        return;
+    }
+
+    let total =
+        cart.reduce(
+            (sum, item) =>
+                sum + item.price * item.quantity,
+            0
+        );
+
+    if (promoDiscount > 0) {
+
+        total =
+            total - total * promoDiscount / 100;
+
+    }
+
+    const orderNumber =
+        Math.floor(
+            100000 + Math.random() * 900000
+        );
+
+    alert(
+        "✅ Заказ успешно оформлен!\n\n" +
+        "Номер заказа: #" +
+        orderNumber +
+        "\n" +
+        "Покупатель: " +
+        name +
+        "\n" +
+        "Город: " +
+        city +
+        "\n" +
+        "Доставка: " +
+        delivery +
+        "\n" +
+        "Сумма: " +
+        total.toLocaleString() +
+        " ₸\n\n" +
+        "Менеджер свяжется с вами."
+    );
+
+    cart = [];
+
+    promoDiscount = 0;
+
+    saveCart();
+
+    updateCartCount();
+
+    closeModal("checkoutModal");
+
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+function searchProduct() {
+
+    const value =
+        document
+        .getElementById("search")
+        .value
+        .trim()
+        .toLowerCase();
+
+    if (value === "") {
+
+        renderProducts(products);
+
+        return;
+    }
+
+    const result =
+        products.filter(product =>
+
+            product.name.toLowerCase().includes(value) ||
+            product.brand.toLowerCase().includes(value) ||
+            product.category.toLowerCase().includes(value) ||
+            product.article.toLowerCase().includes(value)
+
+        );
+
+    renderProducts(result);
+
+    document
+        .getElementById("products")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+/* =====================================================
+   FILTERS
+===================================================== */
+
+function filterProducts() {
+
+    const category =
+        document.getElementById("categoryFilter").value;
+
+    const brand =
+        document.getElementById("brandFilter").value;
+
+    const min =
+        Number(document.getElementById("minPrice").value) || 0;
+
+    const max =
+        Number(document.getElementById("maxPrice").value) || Infinity;
+
+    const result =
+        products.filter(product => {
+
+            return (
+
+                (!category ||
+                product.category === category)
+
+                &&
+
+                (!brand ||
+                product.brand === brand)
+
+                &&
+
+                product.price >= min
+
+                &&
+
+                product.price <= max
+
+            );
+
+        });
+
+    renderProducts(result);
+
+}
+
+
+function filterCategory(category) {
+
+    document.getElementById("categoryFilter").value =
+        category;
+
+    filterProducts();
+
+    document
+        .getElementById("products")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+function resetFilters() {
+
+    document.getElementById("categoryFilter").value = "";
+
+    document.getElementById("brandFilter").value = "";
+
+    document.getElementById("minPrice").value = "";
+
+    document.getElementById("maxPrice").value = "";
+
+    document.getElementById("search").value = "";
+
+    renderProducts(products);
+
+}
+
+
+/* =====================================================
+   FAVORITES
+===================================================== */
+
+function toggleFavorite(id) {
+
+    if (favorites.includes(id)) {
+
+        favorites =
+            favorites.filter(item => item !== id);
+
+        showToast("Удалено из избранного");
+
+    } else {
+
+        favorites.push(id);
+
+        showToast("❤️ Добавлено в избранное");
+
+    }
+
+    localStorage.setItem(
+        "azauto_favorites",
+        JSON.stringify(favorites)
+    );
+
+    updateFavoriteCount();
+
+    filterProducts();
+
+}
+
+
+function updateFavoriteCount() {
+
+    document.getElementById("favoriteCount").innerText =
+        favorites.length;
+
+}
+
+
+function showFavorites() {
+
+    const result =
+        products.filter(product =>
+            favorites.includes(product.id)
+        );
+
+    renderProducts(result);
+
+    document
+        .getElementById("products")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+    if (result.length === 0) {
+
+        showToast("❤️ Избранных товаров пока нет");
+
+    }
+
+}
+
+
+/* =====================================================
+   CAR DATABASE
+===================================================== */
+
+const carData = {
+
+    Toyota: {
+        Camry: {
+            years: {
+                2026: ["2.0 бензин", "2.5 бензин"],
+                2025: ["2.0 бензин", "2.5 бензин"],
+                2024: ["2.0 бензин", "2.5 бензин"]
+            }
+        },
+
+        Corolla: {
+            years: {
+                2026: ["1.6 бензин", "2.0 бензин"],
+                2025: ["1.6 бензин", "2.0 бензин"],
+                2024: ["1.6 бензин"]
+            }
+        }
+    },
+
+    BMW: {
+
+        "5 Series": {
+            years: {
+                2026: ["2.0 бензин", "3.0 бензин"],
+                2025: ["2.0 бензин", "3.0 бензин"],
+                2024: ["2.0 бензин"]
+            }
+        }
+
+    },
+
+    Hyundai: {
+
+        Sonata: {
+            years: {
+                2026: ["2.0 бензин", "2.5 бензин"],
+                2025: ["2.0 бензин", "2.5 бензин"],
+                2024: ["2.0 бензин"]
+            }
+        },
+
+        Tucson: {
+            years: {
+                2026: ["2.0 бензин", "2.5 бензин"],
+                2025: ["2.0 бензин"],
+                2024: ["2.0 бензин"]
+            }
+        }
+
+    },
+
+    Ford: {
+
+        Mondeo: {
+            years: {
+                2018: ["2.0 бензин", "2.5 бензин"],
+                2017: ["2.0 бензин"],
+                2016: ["2.0 бензин"]
+            }
+        }
+
+    }
+
+};
+
+
+function updateModels() {
+
+    const brand =
+        document.getElementById("brand").value;
+
+    const model =
+        document.getElementById("model");
+
+    model.innerHTML =
+        `<option value="">Модель</option>`;
+
+    document.getElementById("year").innerHTML =
+        `<option value="">Год</option>`;
+
+    document.getElementById("engine").innerHTML =
+        `<option value="">Двигатель</option>`;
+
+    if (!carData[brand]) return;
+
+    Object.keys(carData[brand]).forEach(name => {
+
+        model.innerHTML +=
+            `<option value="${name}">${name}</option>`;
+
+    });
+
+}
+
+
+function updateYears() {
+
+    const brand =
+        document.getElementById("brand").value;
+
+    const model =
+        document.getElementById("model").value;
+
+    const year =
+        document.getElementById("year");
+
+    year.innerHTML =
+        `<option value="">Год</option>`;
+
+    document.getElementById("engine").innerHTML =
+        `<option value="">Двигатель</option>`;
+
+    if (!carData[brand] ||
+        !carData[brand][model]) return;
+
+    Object.keys(
+        carData[brand][model].years
+    ).forEach(item => {
+
+        year.innerHTML +=
+            `<option value="${item}">${item}</option>`;
+
+    });
+
+}
+
+
+function updateEngines() {
+
+    const brand =
+        document.getElementById("brand").value;
+
+    const model =
+        document.getElementById("model").value;
+
+    const year =
+        document.getElementById("year").value;
+
+    const engine =
+        document.getElementById("engine");
+
+    engine.innerHTML =
+        `<option value="">Двигатель</option>`;
+
+    if (
+        !carData[brand] ||
+        !carData[brand][model] ||
+        !carData[brand][model].years[year]
+    ) return;
+
+    carData[brand][model].years[year]
+        .forEach(item => {
+
+            engine.innerHTML +=
+                `<option value="${item}">${item}</option>`;
+
+        });
+
+}
+
+
+function findParts() {
+
+    const brand =
+        document.getElementById("brand").value;
+
+    const model =
+        document.getElementById("model").value;
+
+    const year =
+        document.getElementById("year").value;
+
+    const engine =
+        document.getElementById("engine").value;
+
+    if (!brand || !model || !year || !engine) {
+
+        showToast(
+            "⚠️ Выберите марку, модель, год и двигатель"
+        );
+
+        return;
+    }
+
+    alert(
+        "🚗 Автомобиль выбран:\n\n" +
+        brand + " " +
+        model + "\n" +
+        "Год: " + year + "\n" +
+        "Двигатель: " + engine +
+        "\n\n" +
+        "Подходящие запчасти будут показаны ниже."
+    );
+
+    document
+        .getElementById("products")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+/* =====================================================
+   VIN
+===================================================== */
+
+function checkVIN() {
+
+    const vin =
+        document
+        .getElementById("vinInput")
+        .value
+        .trim()
+        .toUpperCase();
+
+    if (vin.length !== 17) {
+
+        showToast(
+            "⚠️ VIN должен содержать 17 символов"
+        );
+
+        return;
+    }
+
+    showToast(
+        "🔎 VIN принят. Менеджер поможет подобрать детали."
+    );
+
+}
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+function toggleDarkMode() {
+
+    document.body.classList.toggle("dark");
+
+    localStorage.setItem(
+        "azauto_dark",
+        document.body.classList.contains("dark")
+    );
+
+}
+
+
+function loadDarkMode() {
+
+    if (
+        localStorage.getItem("azauto_dark") === "true"
+    ) {
+
+        document.body.classList.add("dark");
+
+    }
+
+}
+
+
+/* =====================================================
+   MODALS
+===================================================== */
+
+function openModal(id) {
+
+    document
+        .getElementById(id)
+        .classList.add("active");
+
+}
+
+
+function closeModal(id) {
+
+    document
+        .getElementById(id)
+        .classList.remove("active");
+
+}
+
+
+/* Закрытие по клику на фон */
+
+document.querySelectorAll(".modal-bg")
+    .forEach(bg => {
+
+        bg.addEventListener("click", function(e) {
+
+            if (e.target === bg) {
+
+                bg.classList.remove("active");
+
+            }
+
+        });
+
+    });
+
+
+/* =====================================================
+   OTHER
+===================================================== */
+
+function scrollToProducts() {
+
+    document
+        .getElementById("products")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+function showMessage(text) {
+
+    alert(
+        "Раздел «" +
+        text +
+        "» доступен в демонстрационной версии AzautoKZ."
+    );
+
+}
+
+
+function showToast(message) {
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.innerText = message;
+
+    toast.classList.add("show");
+
+    setTimeout(() => {
+
+        toast.classList.remove("show");
+
+    }, 2500);
+
+}
+
+</script>
+
+</body>
+</html>
+```
